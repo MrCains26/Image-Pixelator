@@ -48,9 +48,9 @@ Open an image, adjust the block size slider, and click **Apply Pixelation**. Cli
 
 ### Pre-compiled (Recommended)
 
-1. Download `Image-Pixelator.exe` and `Image-Pixelator.pkg` from the latest [release](https://github.com/yourusername/image-censor-pixel/releases)
-2. Place both files in the same directory
-3. Double-click `Image-Pixelator.exe`
+1. Download the .zip file for your operating system (Windows, macOS, or Linux) from the latest [release](https://github.com/MrCains26/Image-Pixelator/releases)
+2. Extract the contents to a folder of your choice
+3. Double-click Image-Pixelator.exe (Windows) or the executable file (macOS/Linux)
 
 ***
 
