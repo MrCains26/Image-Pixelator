@@ -64,7 +64,7 @@ Follow these steps to compile the application from the source code on your local
 
 ### Prerequisites
 - **Python 3.14+** installed on your computer.
-- **Git** (if you are cloning the repository).
+- **Git** (to clone the repository).
 
 ### 1. Setup (All Operating Systems)
 1.  Clone the repository or download the source files to your computer.
