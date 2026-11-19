@@ -56,7 +56,7 @@ Open an image, adjust the block size slider, and click **Apply Pixelation**. Cli
 2. Extract the contents to a folder of your choice
 3. Double-click Image-Pixelator.exe (Windows) or the executable file (macOS/Linux)
 
->The compiled executable is placed in `dist/` as `Image-Pixelator.exe` and `Image-Pixelator.pkg`. The `.exe` references the `.pkg` at runtime for faster loading speed compared to a standalone `.exe` file, make sure they are always in the same folder.
+>The compiled executable folder contains `Image-Pixelator.exe` (or Linux/MacOS equivalent) and `Image-Pixelator.pkg`. The `.exe` references the `.pkg` at runtime for faster loading speed compared to a standalone `.exe` file, make sure they are always in the same folder/directory.
 
 ***
 
