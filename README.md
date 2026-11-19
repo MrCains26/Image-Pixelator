@@ -58,19 +58,69 @@ Open an image, adjust the block size slider, and click **Apply Pixelation**. Cli
 
 ***
 
-### From Source
+## Building from Source
 
-1. Install Python 3.14+
-2. Clone the repository
-3. Open your terminal or CLI in the cloned directory
-<br>
+Follow these steps to compile the application from the source code on your local machine.
 
-**Install dependencies:**
+### Prerequisites
+- **Python 3.14+** installed on your computer.
+- **Git** (if you are cloning the repository).
+
+### 1. Setup (All Operating Systems)
+1.  Clone the repository or download the source files to your computer.
+2.  Open your **Terminal** or **Command Prompt** in the repository directory.
+3.  Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    pip install pyinstaller
+    ```
+
+### 2. Build the Executable
+
+Run the following command to compile the Python code into a standalone application:
+
 ```bash
-pip install -r requirements.txt
-pip install pyinstaller
+pyinstaller Image-Pixelator.spec --clean
 ```
-Build: `pyinstaller Image-Pixelator.spec --clean`\
-Launch from: `dist/Image-Pixelator.exe`
+
+This process will generate a new folder named dist/ in your repository.
+
+### 3. Run the Application
+
+**Windows**
+1. Open the `dist/` folder.
+2. Double-click `Image-Pixelator.exe` to launch the program.
+
+**macOS**
+1. Open the `dist/` folder.
+2. Double-click `Image-Pixelator.app`.
+
+**Linux**
+1. Open your terminal and navigate to the `dist/` folder.
+2. Make the application executable:
+   
+```bash
+chmod +x Image-Pixelator
+```
+
+3. Launch the program:
+`./Image-Pixelator`
+>[!NOTE]
+>If you encounter a library error on Linux, you may need to install Tkinter system dependencies (e.g., `sudo apt-get install python3-tk libx11-xcb1` on Ubuntu/Debian).
+
+>[!WARNING]
+>you may get a popup saying "Windows protected your PC" or a warning stating that Apple cannot verify the app.
+>
+>**Windows**
+>1. Click **More info** (or **Details**) on the blue warning bar.
+>2. Click the **Run anyway** button.
+>   
+>**macOS**
+>1. Right-click (or Control-click) the `Image-Pixelator.app` file.
+>2. Select **Open** from the context menu.
+>3. Click **Open** again in the dialog box that appears.
+>   
+>These warnings appear because **Image Pixelator** is a free, open-source application without a paid digital signature. This is a standard warning for any new, unsigned software. You can verify the safety of the code by browsing the source files on this repository.
+
 
 >The compiled executable is placed in `dist/` as `Image-Pixelator.exe` and `Image-Pixelator.pkg`. The `.exe` references the `.pkg` at runtime for faster loading speed compared to a standalone `.exe` file, make sure they are in the same folder.
