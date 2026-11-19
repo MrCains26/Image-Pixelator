@@ -4,7 +4,7 @@
 ![Build Status](https://img.shields.io/github/actions/workflow/status/MrCains26/Image-Pixelator/build.yml?label=Build)
 [![GitHub Release](https://img.shields.io/github/v/release/MrCains26/Image-Pixelator)](https://github.com/MrCains26/Image-Pixelator/releases)
 [![Python](https://img.shields.io/badge/Python-3.14%2B-blue)](https://www.python.org/)
-[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-222)](https://www.github.com/)\
+[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-222)](https://github.com/MrCains26/Image-Pixelator/releases)\
 A fast, resource efficient, cross-platform desktop application for pixelating images with full-image and Region-of-Interest (ROI) support.
 
 ## Features
