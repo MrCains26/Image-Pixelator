@@ -56,6 +56,8 @@ Open an image, adjust the block size slider, and click **Apply Pixelation**. Cli
 2. Extract the contents to a folder of your choice
 3. Double-click Image-Pixelator.exe (Windows) or the executable file (macOS/Linux)
 
+>The compiled executable is placed in `dist/` as `Image-Pixelator.exe` and `Image-Pixelator.pkg`. The `.exe` references the `.pkg` at runtime for faster loading speed compared to a standalone `.exe` file, make sure they are always in the same folder.
+
 ***
 
 ## Building from Source
@@ -121,6 +123,3 @@ chmod +x Image-Pixelator
 >3. Click **Open** again in the dialog box that appears.
 >   
 >These warnings appear because **Image Pixelator** is a free, open-source application without a paid digital signature. This is a standard warning for any new, unsigned software. You can verify the safety of the code by browsing the source files on this repository.
-
-
->The compiled executable is placed in `dist/` as `Image-Pixelator.exe` and `Image-Pixelator.pkg`. The `.exe` references the `.pkg` at runtime for faster loading speed compared to a standalone `.exe` file, make sure they are in the same folder.
