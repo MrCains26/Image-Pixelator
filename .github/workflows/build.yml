@@ -59,6 +59,7 @@ jobs:
           else
             zip -r "Image-Pixelator-${RUNNER_OS}.zip" dist/
           fi
+        shell: bash
         env:
           RUNNER_OS: ${{ runner.os }}
 
