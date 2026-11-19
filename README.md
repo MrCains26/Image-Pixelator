@@ -1,6 +1,9 @@
 # Image Pixelator 
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Build Status](https://img.shields.io/github/actions/workflow/status/MrCains26/Image-Pixelator/build.yml?label=Build)
+[![GitHub Release](https://img.shields.io/github/v/release/MrCains26/Image-Pixelator)](https://github.com/MrCains26/Image-Pixelator/releases)
+[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-222)](https://www.github.com/)\
 A fast, resource efficient, cross-platform desktop application for pixelating images with full-image and Region-of-Interest (ROI) support.
 
 ## Features
