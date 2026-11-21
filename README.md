@@ -22,7 +22,7 @@ A fast, resource efficient, cross-platform desktop application for pixelating im
 | Layer        | Technology                                  |
 |--------------|---------------------------------------------|
 | GUI          | Python + Tkinter + tkinterdnd2              |
-| Image Engine | Python + Pillow (PIL) — optimized resize technique |
+| Image Engine | Python + Pillow (PIL) — optimized and resize |
 | Packaging    | PyInstaller (produces executable) |
 | CI/CD        | GitHub Actions (cross-platform builds)       |
 
@@ -32,6 +32,7 @@ A fast, resource efficient, cross-platform desktop application for pixelating im
 - [requirements.txt](requirements.txt)
    - Pillow
    - tkinterdnd2
+   - pystray
 
 ## Supported Formats
 PNG, JPG, JPEG, BMP, GIF, TIFF, WEBP
