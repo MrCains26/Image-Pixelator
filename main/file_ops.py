@@ -1,7 +1,3 @@
-"""
-Image file operations: open, save, reset, clear, download. (all file I/O operations)
-"""
-
 import os
 from tkinter import filedialog, messagebox
 
@@ -333,6 +329,9 @@ class FileOperations:
         dialog.resizable(False, False)
         dialog.transient(self.app.root)
         dialog.grab_set()
+
+        if hasattr(self.app, '_window_icon') and self.app._window_icon is not None:
+            dialog.iconphoto(True, self.app._window_icon)
 
         dialog.update_idletasks()
         x = (dialog.winfo_screenwidth() - 400) // 2

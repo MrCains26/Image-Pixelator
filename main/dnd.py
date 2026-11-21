@@ -1,7 +1,3 @@
-"""
-Drag-and-drop file handling using tkinterdnd2.
-"""
-
 import os
 
 import tkinterdnd2

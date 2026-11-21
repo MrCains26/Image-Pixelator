@@ -1,7 +1,3 @@
-"""
-Image pixelation engine using PIL.
-"""
-
 from PIL import Image
 
 

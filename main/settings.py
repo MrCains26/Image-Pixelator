@@ -1,7 +1,3 @@
-"""
-Settings dialog and configuration management UI.
-"""
-
 import os
 
 import tkinter as tk
@@ -30,6 +26,9 @@ class SettingsDialog:
         self.settings_dropdown.wm_deiconify()
         self.settings_dropdown.attributes('-topmost', True)
         self.settings_dropdown.protocol("WM_DELETE_WINDOW", self.close)
+
+        if hasattr(self.app, '_window_icon') and self.app._window_icon is not None:
+            self.settings_dropdown.iconphoto(True, self.app._window_icon)
 
         inner = ttk.Frame(self.settings_dropdown, padding=10)
         inner.pack(fill=tk.BOTH, expand=True)
@@ -188,6 +187,9 @@ class SettingsDialog:
         parent_win.deiconify()
         parent_win.attributes('-topmost', False)
 
+        if hasattr(self.app, '_window_icon') and self.app._window_icon is not None:
+            parent_win.iconphoto(True, self.app._window_icon)
+
         filepath = filedialog.askdirectory(
             parent=parent_win,
             title="Choose auto-save folder"
@@ -230,6 +232,9 @@ class SettingsDialog:
             dialog.attributes('-topmost', True)
             dialog.transient(self.app.root)
             dialog.grab_set()
+
+            if hasattr(self.app, '_window_icon') and self.app._window_icon is not None:
+                dialog.iconphoto(True, self.app._window_icon)
 
             info_frame = ttk.Frame(dialog, padding=15)
             info_frame.pack(fill=tk.BOTH, expand=True)

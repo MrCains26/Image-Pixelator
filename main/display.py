@@ -1,7 +1,3 @@
-"""
-Image display on the main canvas, with scaling.
-"""
-
 from PIL import Image, ImageTk
 
 import tkinter as tk

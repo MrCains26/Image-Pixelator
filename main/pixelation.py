@@ -1,7 +1,3 @@
-"""
-Apply pixelation to images using threading.
-"""
-
 import threading
 
 import tkinter as tk

@@ -1,7 +1,3 @@
-"""
-Thumbnail bar management for image preview.
-"""
-
 from PIL import Image, ImageTk
 
 import tkinter as tk

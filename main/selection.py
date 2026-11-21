@@ -1,7 +1,3 @@
-"""
-Interactive rectangle selection tool for ROI pixelation.
-"""
-
 import tkinter as tk
 
 

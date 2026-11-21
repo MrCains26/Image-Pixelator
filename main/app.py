@@ -1,25 +1,13 @@
-"""
-Refactored into modular components:
-  - engine.py:      PixelateEngine (image pixelation logic)
-  - selection.py:   SelectionTool (ROI rectangle selection)
-  - config.py:      ConfigManager (settings persistence)
-  - slider.py:      BlockSizeSlider (block size UI control)
-  - file_ops.py:    FileOperations (open/save/reset/clear)
-  - thumbnail.py:   ThumbnailManager (thumbnail bar)
-  - display.py:     ImageDisplay (canvas image rendering)
-  - pixelation.py:  PixelationHandler (apply pixelation)
-  - settings.py:    SettingsDialog (settings popup)
-  - dnd.py:         DragDropHandler (drag-and-drop)
-  - ui.py:          UILayout (widget layout)
-"""
-
 import os
 import sys
 import threading
+from pathlib import Path
 
 import tkinter as tk
 from tkinter import ttk
 import tkinterdnd2
+from PIL import Image
+import pystray
 
 from engine import PixelateEngine
 from selection import SelectionTool
@@ -35,7 +23,6 @@ from ui import UILayout
 
 
 class PixelatorApp:
-    """Main application window - coordinates all modules"""
 
     def __init__(self, root):
         self.root = root
@@ -70,6 +57,7 @@ class PixelatorApp:
 
         self.settings_dropdown = None
         self.menu_bar = None
+        self._window_icon = None
         self.reset_frame = None
         self.status_frame = None
         self.close_x_ids = {}
@@ -275,7 +263,21 @@ class PixelatorApp:
     def _display_image(self, image):
         self.display.display(image)
 
-# Entry Point
+
+def resource_path(relative_path):
+    if getattr(sys, "frozen", False):
+        if hasattr(sys, "_MEIPASS"):
+            return Path(sys._MEIPASS) / relative_path
+        base = Path(sys.executable).parent
+        if (base / relative_path).exists():
+            return base / relative_path
+        internal = base / "_internal"
+        if (internal / relative_path).exists():
+            return internal / relative_path
+        return base / relative_path
+    else:
+        return Path(__file__).parent / ".." / relative_path
+
 
 def main():
     root = tkinterdnd2.TkinterDnD.Tk()
@@ -290,11 +292,44 @@ def main():
         except Exception:
             pass
 
+    icon_png_path = resource_path(Path("assets") / "icon.png")
+    app_icon = None
+    if icon_png_path.exists():
+        try:
+            app_icon = tk.PhotoImage(file=str(icon_png_path))
+            root.iconphoto(True, app_icon)
+        except Exception:
+            pass
+
+    icon_ico_path = resource_path(Path("assets") / "icon.ico")
+    if not app_icon and icon_ico_path.exists():
+        root.iconbitmap(str(icon_ico_path))
+
+    tray_image = None
+    if icon_png_path.exists():
+        try:
+            tray_image = Image.open(str(icon_png_path)).convert("RGBA")
+            tray_icon = pystray.Icon("Image Pixelator", tray_image, "Image Pixelator")
+            tray_thread = threading.Thread(target=tray_icon.run, daemon=True)
+            tray_thread.start()
+        except Exception:
+            pass
+
+    def on_close():
+        try:
+            tray_icon.stop()
+        except Exception:
+            pass
+        root.destroy()
+
+    root.protocol("WM_DELETE_WINDOW", on_close)
+
     style.configure("Menu.TFrame", background='#f5f5f5')
     style.configure("Menu.TButton", background='#f5f5f5', foreground='#333333')
     style.configure("Menu.TLabel", background='#f0f0f0', foreground='#333333')
 
     app = PixelatorApp(root)
+    app._window_icon = app_icon
     root.mainloop()
 
 

@@ -1,7 +1,3 @@
-"""
-Block size slider UI and logic.
-"""
-
 import tkinter as tk
 
 

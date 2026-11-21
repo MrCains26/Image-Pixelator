@@ -1,7 +1,3 @@
-"""
-UI layout setup - builds all widgets and arranges them.
-"""
-
 import tkinter as tk
 from tkinter import ttk
 

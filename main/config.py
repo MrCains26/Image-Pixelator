@@ -1,13 +1,8 @@
-"""
-Configuration file loading and saving.
-"""
-
 import json
 import os
 
 
 class ConfigManager:
-    """Manages application settings persistence"""
 
     def __init__(self, config_file):
         self.config_file = config_file

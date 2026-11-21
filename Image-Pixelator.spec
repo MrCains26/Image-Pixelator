@@ -1,16 +1,12 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 
-block_cipher = None
-
 a = Analysis(
     ['main/app.py'],
-    pathex=['.'],
+    pathex=[],
     binaries=[],
-    datas=[
-        ('main/settings.json', 'main'),
-    ],
-    hiddenimports=['PIL', 'PIL.ImageTk', 'PIL.ImageDraw', 'tkinterdnd2'],
+    datas=[('assets/icon.ico', 'assets'), ('assets/icon.png', 'assets')],
+    hiddenimports=['PIL.ImageTk', 'PIL.ImageDraw', 'tkinterdnd2', 'pystray'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -31,14 +27,22 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
+    exclude_binaries=True,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    noconfirm=True,
-    append_pkg=False,
+    icon=['assets/icon.ico'],
+)
+
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.datas,
+    name='Image-Pixelator',
+    strip=False,
+    upx=True,
+    upx_exclude=[],
 )
